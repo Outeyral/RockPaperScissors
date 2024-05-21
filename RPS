@@ -1,0 +1,31 @@
+import random
+
+
+def play():
+    user = input("'r' for rock, 'p' for paper, 's' for scissors: ")
+    computer = random.choice(['r', 'p', 's'])
+    if user == computer:
+        return f"Computer: {computer}\nUser: {user}\nIt's a tie!"
+    elif is_win(user, computer):
+        return f"Computer: {computer}\nUser: {user}\nYou won!"
+
+    return f"Computer: {computer}\nUser: {user}\nYou lost!"
+
+
+def is_win(user, computer):
+    if (user == 'r' and computer == 's') or (user == 'p' and computer == 'r') or (user == 's' and computer == 'p'):
+        return True
+
+
+print(play())
+
+while True:
+    new = input("Play again? Press 'Y' for yes or 'N' for no.")
+    if new == "y":
+        print(play())
+    elif new == "n":
+        print("Great! See you next time!")
+        exit()
+    else:
+        print("Sorry, the key was incorrect, try again!")
+        pass
